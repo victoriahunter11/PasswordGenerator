@@ -62,17 +62,7 @@ var Lowercase = [
 
  //Function to get info about the criteria of the password
  function generatePassword() {
-   confirmLowercase = confirm("Do you want lowercase letters?");
-   confirmUppercase = confirm("Do you want uppercase letters?");
-   confirmNumbers = confirm("Do you want numbers?");
-   confirmCharacters = confirm("Do you want special characters?");
-
-   //Person selects none of these
-   if (!confirmLowercase && !confirmUppercase && !confirmNumbers && !confirmCharacters) {
-     alert("Must choose a criteria.");
-     generatePassword();
-   }
-//Prompt asking how long for the password to be
+   //Prompt asking how long for the password to be
    var passwordLength = prompt("How many characters do you want your password to consist of?", "Enter a number between 8 and 128.");
 
    //If user tries to 
@@ -83,6 +73,18 @@ var Lowercase = [
    } else {
      alert('password length is ' + passwordLength);
    }
+   
+   confirmLowercase = confirm("Do you want lowercase letters?");
+   confirmUppercase = confirm("Do you want uppercase letters?");
+   confirmNumbers = confirm("Do you want numbers?");
+   confirmCharacters = confirm("Do you want special characters?");
+
+   //Person selects none of these
+   if (!confirmLowercase && !confirmUppercase && !confirmNumbers && !confirmCharacters) {
+     alert("Must choose a criteria.");
+     generatePassword();
+   }
+
   } 
 
  if (confirmLowercase) {
@@ -105,7 +107,7 @@ var Lowercase = [
  
  
 //
-var password="";
+var password = ('');
 for(var i = 0; i < passwordLength; i++) {
   var pass = Math.floor(Math.random() * pass.length);
   password += pass[random];
