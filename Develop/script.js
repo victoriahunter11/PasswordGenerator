@@ -69,7 +69,7 @@ var Lowercase = [
 
    //Person selects none of these
    if (!confirmLowercase && !confirmUppercase && !confirmNumbers && !confirmCharacters) {
-     alert("You need atleast one!");
+     alert("Must choose a criteria.");
      generatePassword();
    }
 //Prompt asking how long for the password to be
@@ -80,6 +80,9 @@ var Lowercase = [
      alert("This needs a value");
    } else if (passwordLength < 8 || passwordLength > 128) {
    alert("You must choose between 8 and 128.");
+   } else {
+     alert('password length is ' + passwordLength);
+   }
   } 
 
  if (confirmLowercase) {
@@ -100,7 +103,7 @@ var Lowercase = [
  
  }
  
- }
+ 
 //
 var password="";
 for(var i = 0; i < passwordLength; i++) {
