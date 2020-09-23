@@ -58,7 +58,7 @@ var Lowercase = [
 
  var numbers = [1,2,3,4,5,6,7,8,9];
  var characters = ['!','@','#','$','%','^','&','*','(',')'];
- var pw = [];
+ var pass = [''];
 
  //Function to get info about the criteria of the password
  function generatePassword() {
@@ -67,29 +67,48 @@ var Lowercase = [
    confirmNumbers = confirm("Do you want numbers?");
    confirmCharacters = confirm("Do you want special characters?");
 
+   //Person selects none of these
    if (!confirmLowercase && !confirmUppercase && !confirmNumbers && !confirmCharacters) {
      alert("You need atleast one!");
      generatePassword();
    }
-
+//Prompt asking how long for the password to be
    var passwordLength = prompt("How many characters do you want your password to consist of?", "Enter a number between 8 and 128.");
 
+   //If user tries to 
    if (!passwordLength) {
      alert("This needs a value");
    } else if (passwordLength < 8 || passwordLength > 128) {
    alert("You must choose between 8 and 128.");
   } 
 
- else if (confirmLowercase && confirmUppercase && confirmNumbers && confirmCharacters) {
-   pw = character.concat(number, Lowercase, Uppercase);
+ if (confirmLowercase) {
+   pass=pass.concat(Lowercase);
+   console.log(pass);
  }
-else if (confirmLowercase && confirmUppercase && confirmNumbers) {
-  pw = character.concat(number, Lowercase, Uppercase)
+ if (confirmUppercase) {
+   pass=pass.concat(Uppercase);
+   console.log(pass);
+ }
+ if (confirmNumbers) {
+   pass=pass.concat(numbers);
+   console.log(pass);
+ }
+ if (confirmCharacters) {
+   pass=pass.concat(characters);
+   console.log(pass);
+ 
+ }
+ 
+ }
+//
+var password="";
+for(var i = 0; i < passwordLength; i++) {
+  var pass = Math.floor(Math.random() * pass.length);
+  password += pass[random];
 }
 
-}
-
-
+console.log(password);
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
@@ -100,6 +119,7 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   
   passwordText.value = password;
+  return password;
 
 }
 
